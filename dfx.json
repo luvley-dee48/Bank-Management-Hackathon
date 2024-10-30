@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "Bank-Management-Hackathon-backend": {
+      "main": "src/Bank-Management-Hackathon-backend/main.mo",
+      "type": "motoko"
+    },
+    "Bank-Management-Hackathon-frontend": {
+      "dependencies": [
+        "Bank-Management-Hackathon-backend"
+      ],
+      "source": [
+        "src/Bank-Management-Hackathon-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "Bank-Management-Hackathon-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
