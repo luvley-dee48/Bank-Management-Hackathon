@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Bank_Management_Hackathon_backend } from 'declarations/Bank-Management-Hackathon-backend';
 
 const SignUpPage = () => {
   const [formData, setFormData] = React.useState({
@@ -9,7 +8,7 @@ const SignUpPage = () => {
     phone: '',
     password: '',
     confirmPassword: '',
-    role_name: 'auto',
+    role_name: 'auto', // Automatically set role if email matches
     branch_name: '',
     address: '',
     account_type: '',
@@ -21,10 +20,20 @@ const SignUpPage = () => {
     phone: '',
     password: '',
     confirmPassword: '',
+    address: '',
+    account_type: '',
     general: '',
   });
 
+  const [loading, setLoading] = React.useState(false);
   const navigate = useNavigate();
+
+  const roleByEmail = {
+    'manager.demo@example.com': 'manager',
+    'customer.demo@example.com': 'customer',
+    'teller.demo@example.com': 'teller',
+    'admin.demo@example.com': 'admin',
+  };
 
   const validateForm = () => {
     let isValid = true;
@@ -34,6 +43,8 @@ const SignUpPage = () => {
       phone: '',
       password: '',
       confirmPassword: '',
+      address: '',
+      account_type: '',
       general: '',
     };
 
@@ -73,16 +84,29 @@ const SignUpPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
+      setLoading(true); // Start loading state
       try {
-        // Motoko backend integration will go here
+        // Perform backend registration here
+        // Use formData.role_name if email matches
         navigate('/login');
       } catch (error) {
-        setErrors(prev => ({
+        setErrors((prev) => ({
           ...prev,
           general: 'Registration failed. Please try again.',
         }));
+      } finally {
+        setLoading(false); // End loading state
       }
     }
+  };
+
+  const handleEmailChange = (e) => {
+    const email = e.target.value;
+    setFormData((prevData) => ({
+      ...prevData,
+      email,
+      role_name: roleByEmail[email] || 'auto', // Set role if email matches; default to 'auto'
+    }));
   };
 
   const handleClose = () => {
@@ -128,7 +152,7 @@ const SignUpPage = () => {
                   placeholder="Email"
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={handleEmailChange}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -136,7 +160,6 @@ const SignUpPage = () => {
                 <input
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400"
                   placeholder="Branch Name"
-                  type="string"
                   value={formData.branch_name}
                   onChange={(e) => setFormData({ ...formData, branch_name: e.target.value })}
                 />
@@ -146,7 +169,6 @@ const SignUpPage = () => {
                 <input
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400"
                   placeholder="Phone Number"
-                  type="string"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
@@ -156,7 +178,6 @@ const SignUpPage = () => {
                 <input
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400"
                   placeholder="Address"
-                  type="text"
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 />
@@ -166,25 +187,10 @@ const SignUpPage = () => {
                 <input
                   className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400"
                   placeholder="Account Type (e.g., Savings, Checking)"
-                  type="text"
                   value={formData.account_type}
                   onChange={(e) => setFormData({ ...formData, account_type: e.target.value })}
                 />
                 {errors.account_type && <p className="text-red-500 text-sm mt-1">{errors.account_type}</p>}
-              </div>
-              <div className={`form-control ${errors.role_name ? 'text-red-500' : ''}`}>
-                <label className="block mb-2 text-gray-700">Role:</label>
-                <select
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-400"
-                  value={formData.role_name}
-                  onChange={(e) => setFormData({ ...formData, role_name: e.target.value })}
-                >
-                  <option value="auto">Auto (Based on Email)</option>
-                  <option value="manager">Manager</option>
-                  <option value="teller">Teller</option>
-                  <option value="customer">Customer</option>
-                </select>
-                {errors.role_name && <p className="text-red-500 text-sm mt-1">{errors.role_name}</p>}
               </div>
               <div className={`form-control ${errors.password ? 'text-red-500' : ''}`}>
                 <input
@@ -204,22 +210,18 @@ const SignUpPage = () => {
                   value={formData.confirmPassword}
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                 />
-                {errors.confirmPassword && (
-                  <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
-                )}
+                {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
               </div>
               <button
                 type="submit"
-                className="w-full bg-teal-500 text-white p-3 rounded-lg font-medium hover:bg-teal-600 transition"
+                className={`w-full p-3 mt-4 bg-teal-600 text-white font-semibold rounded-lg shadow-md ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={loading}
               >
-                Sign Up
+                {loading ? 'Creating Account...' : 'Create Account'}
               </button>
             </form>
-            <p className="mt-6 text-center text-gray-600">
-              Already have an account?{' '}
-              <Link to="/Login" className="text-teal-500 font-semibold hover:text-teal-700">
-                Log in
-              </Link>
+            <p className="mt-4 text-center text-gray-600">
+              Already have an account? <Link to="/login" className="text-teal-600 hover:underline">Login here</Link>
             </p>
           </div>
         </div>
