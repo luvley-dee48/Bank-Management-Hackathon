@@ -1,4 +1,4 @@
-import { Avatar, Box, VStack, Text, Spacer } from '@chakra-ui/react';
+import { Avatar, Box, VStack, Text, Spacer, Button } from '@chakra-ui/react';
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -14,13 +14,13 @@ function CustomerSidebar() {
   };
 
   return (
-    <Box width="20%" bg="#FFFFFF" padding="20px" boxShadow="md">
+    <Box width="20%" bg="teal.500" padding="20px" boxShadow="md" height="100vh">
       <VStack align="center" spacing="20px" height="30%">
         <Avatar name={customerName} src={avatarUrl} size="2xl" />
-        <Text fontSize="2xl" fontWeight="bold">
+        <Text fontSize="2xl" fontWeight="bold" color="white">
           {customerName}
         </Text>
-        <Text fontSize="lg">Customer</Text>
+        <Text fontSize="lg" color="white">Customer</Text>
       </VStack>
 
       <VStack align="center" spacing="30px" width="100%" height="70%">
@@ -29,7 +29,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -40,7 +40,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -51,7 +51,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -62,7 +62,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -73,7 +73,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -84,7 +84,7 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
@@ -95,16 +95,23 @@ function CustomerSidebar() {
           style={({ isActive }) => ({
             fontSize: 'xl',
             fontWeight: isActive ? 'bold' : 'normal',
-            color: isActive ? '#000' : '#4A5568',
+            color: isActive ? '#000' : '#000', // All text black
             textDecoration: 'none',
           })}
         >
           Mobile Wallet Transfers
         </NavLink>
         <Spacer />
-        <Text fontSize="xl" color="red" onClick={handleLogout} cursor="pointer">
+        <Button 
+          onClick={handleLogout} 
+          colorScheme="green" 
+          backgroundColor="#009688" // A lighter green resembling teal, but darker than standard teal
+          color="white" 
+          paddingX="10px" // Padding to fit text closely
+          whiteSpace="nowrap" // Prevent text wrapping
+        >
           Log out
-        </Text>
+        </Button>
       </VStack>
     </Box>
   );
