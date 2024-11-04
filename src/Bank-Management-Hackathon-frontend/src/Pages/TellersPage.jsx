@@ -84,6 +84,7 @@ const TellersPage = () => {
     calculateDailySummary();
   }, [transactions]);
 
+
   const calculateDailySummary = () => {
     const today = new Date().toISOString().split('T')[0];
     const todayTransactions = transactions.filter(
@@ -141,6 +142,13 @@ const TellersPage = () => {
   const handleAccountSelect = (accountNumber) => {
     const customer = customerDetails.find((cust) => cust.accountNumber === accountNumber);
     setSelectedAccount(customer);
+  };
+
+  const handleAlertDismiss = (index) => {
+    setDailySummary(prev => ({
+      ...prev,
+      alerts: prev.alerts.filter((_, i) => i !== index)
+    }));
   };
 
   const IdentityVerificationSection = () => (
@@ -233,7 +241,7 @@ const TellersPage = () => {
               <Text fontWeight="bold" mb={2}>Recent Alerts</Text>
               <VStack align="stretch" spacing={2}>
                 {dailySummary.alerts.map((alert, index) => (
-                  <Alert key={index} status={alert.type} variant="left-accent">
+                  <Alert key={index} status={alert.type} variant="left-accent" onClick={() => handleAlertDismiss(index)}>
                     <AlertIcon />
                     <AlertDescription>{alert.message}</AlertDescription>
                   </Alert>
@@ -265,6 +273,9 @@ const TellersPage = () => {
           <Button leftIcon={<MdAccountBalance />} colorScheme="blue" onClick={() => handleTransactionClick("Loan")}>
             Loan
           </Button>
+          <Button leftIcon={<MdExpandMore />} bg="brown" color="white" onClick={() => handleTransactionClick("Transfer")}>
+            Transfer Funds
+          </Button>
         </Stack>
 
         {/* Transaction Table */}
@@ -273,6 +284,7 @@ const TellersPage = () => {
           <option value="deposit">Deposits</option>
           <option value="withdraw">Withdrawals</option>
           <option value="loan">Loans</option>
+          <option value="transfer">Transfers</option>
         </Select>
         <Table variant="simple" colorScheme="teal">
           <Thead>
@@ -318,7 +330,7 @@ const TellersPage = () => {
                 <Tr 
                   key={customer.accountNumber} 
                   onClick={() => handleAccountSelect(customer.accountNumber)}
-                  _hover={{ bg: "gray.100", cursor: "pointer" }}
+                  _hover={{ bg: "orange", cursor: "pointer" }}
                 >
                   <Td>{customer.accountNumber}</Td>
                   <Td>{customer.name}</Td>

@@ -16,6 +16,7 @@ import BillPaymentComponent from "./Components/BillPaymentComponent";
 import CustomerAccountDashboard from "./Pages/CustomerAccountDashboard";
 import CustomerLoanDashboard from "./Pages/CustomerLoanDashboard";
 import ProfileSettings from "./Pages/ProfileSettings";
+import TransferFundsPage from "./Pages/TransferFundsPage";
 function App() {
   return (
     <ChakraProvider>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/transaction/Deposit" element={<DepositPage />} />
           <Route path="/transaction/Withdraw" element={<WithdrawPage />} />
           <Route path="/transaction/Loan" element={<LoanPage />} />
+          <Route path="/transaction/Transfer" element={<TransferFundsPage />} />
           <Route path="/CustomerDashboard" element={<CustomerDashboard />} />
           <Route
             path="/CustomerTransactionDashboard"

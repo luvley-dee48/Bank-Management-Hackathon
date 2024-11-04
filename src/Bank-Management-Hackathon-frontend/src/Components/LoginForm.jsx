@@ -45,7 +45,7 @@ const LoginForm = ({ onClose }) => {
         </button>
 
         <div className="w-1/2 p-8">
-          <h1 className="text-2xl font-bold text-center mb-6 text-green-300">ROSS BANK</h1>
+          <h1 className="text-2xl font-bold text-center mb-6 text-green-300">PRIME BANK</h1>
           <h2 className="text-xl font-semibold text-center mb-4">Welcome Back</h2>
           <p className="text-center mb-6">Trusted to allow you to make safe and seamless transactions</p>
           <form onSubmit={handleSignIn}>

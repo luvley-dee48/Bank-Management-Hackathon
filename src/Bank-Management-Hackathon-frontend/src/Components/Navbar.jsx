@@ -44,7 +44,7 @@ const Navbar = () => {
           bgGradient="linear(to-r, teal.500, green.500)"
           bgClip="text"
         >
-          ROSS BANK
+          PRIME BANK
         </Text>
 
         <IconButton

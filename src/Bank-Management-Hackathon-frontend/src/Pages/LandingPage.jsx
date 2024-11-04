@@ -18,21 +18,21 @@ function LandingPage() {
   const testimonials = [
     {
       quote:
-        "Choosing Ross Bank was one of the best decisions I ever made for my business. From the very first meeting, I felt valued and understood. The team took the time to listen to my goals and provided customized solutions that perfectly suited my needs. Their innovative digital banking platform has made managing my finances effortless, and their customer service is always prompt and helpful. Thanks to Ross Bank, my business is thriving, and I have the peace of mind that my financial future is in good hands.",
+        "Choosing Prime Bank was one of the best decisions I ever made for my business. From the very first meeting, I felt valued and understood. The team took the time to listen to my goals and provided customized solutions that perfectly suited my needs. Their innovative digital banking platform has made managing my finances effortless, and their customer service is always prompt and helpful. Thanks to Prime Bank, my business is thriving, and I have the peace of mind that my financial future is in good hands.",
       name: "Daniella Pearse",
       position: "Manager, Together Holdings",
       image: "https://i.pinimg.com/736x/3a/b1/ce/3ab1ce88c1d2bae5758ce1924c01cb20.jpg",
     },
     {
       quote:
-        "Choosing Ross Bank was a pivotal moment for my small business. The team genuinely took the time to understand my unique challenges and offered tailored solutions that have significantly streamlined my financial management. Their user-friendly platform has made transactions a breeze, and I can always count on their responsive customer support. Thanks to Ross Bank, my business is growing, and I feel confident about my financial decisions.",
+        "Choosing Prime Bank was a pivotal moment for my small business. The team genuinely took the time to understand my unique challenges and offered tailored solutions that have significantly streamlined my financial management. Their user-friendly platform has made transactions a breeze, and I can always count on their responsive customer support. Thanks to Prime Bank, my business is growing, and I feel confident about my financial decisions.",
       name: "Moses Drew",
       position: "Manager, Apex Dynamics",
       image: "https://thumbs.dreamstime.com/b/portrait-male-african-american-professional-possibly-business-executive-corporate-ceo-finance-attorney-lawyer-sales-stylish-155546880.jpg",
     },
     {
       quote:
-        "Choosing Ross Bank was one of the best decisions I ever made for my business. From the very first meeting, I felt valued and understood. The team took the time to listen to my goals and provided customized solutions that perfectly suited my needs. Their innovative digital banking platform has made managing my finances effortless, and their customer service is always prompt and helpful. Thanks to Ross Bank, my business is thriving, and I have the peace of mind that my financial future is in good hands.",
+        "Choosing Prime Bank was one of the best decisions I ever made for my business. From the very first meeting, I felt valued and understood. The team took the time to listen to my goals and provided customized solutions that perfectly suited my needs. Their innovative digital banking platform has made managing my finances effortless, and their customer service is always prompt and helpful. Thanks to Prime Bank, my business is thriving, and I have the peace of mind that my financial future is in good hands.",
       name: "Samantha Reyes",
       position: "Manager, EchoTech Industries",
       image:
@@ -40,7 +40,7 @@ function LandingPage() {
     },
     {
       quote:
-        "I can’t express how grateful I am for Ross Bank. From the start, I felt like a valued client, not just another account number. The team worked with me to create a banking solution that fits my consulting business perfectly. Their intuitive app has simplified my invoicing and expense tracking, and their customer service is exceptional. With Ross Bank by my side, I’m focused on what I do best, knowing my finances are well taken care of.",
+        "I can’t express how grateful I am for Prime Bank. From the start, I felt like a valued client, not just another account number. The team worked with me to create a banking solution that fits my consulting business perfectly. Their intuitive app has simplified my invoicing and expense tracking, and their customer service is exceptional. With Prime Bank by my side, I’m focused on what I do best, knowing my finances are well taken care of.",
       name: "Maxwell Chen",
       position: "Manager, Vanguard Innovations",
       image:
@@ -48,7 +48,7 @@ function LandingPage() {
     },
     {
       quote:
-        "Switching to Ross Bank was one of the smartest decisions I made for my e-commerce business. The personalized service I received from the team made all the difference. They helped me navigate the complexities of online transactions and provided me with tools that made managing my cash flow effortless. Their support is always just a phone call away, and I now have the financial freedom to scale my business.",
+        "Switching to Prime Bank was one of the smartest decisions I made for my e-commerce business. The personalized service I received from the team made all the difference. They helped me navigate the complexities of online transactions and provided me with tools that made managing my cash flow effortless. Their support is always just a phone call away, and I now have the financial freedom to scale my business.",
       name: "Olivia Grant",
       position: "Manager, Pinnacle Dynamics",
       image:
@@ -56,7 +56,7 @@ function LandingPage() {
     },
     {
       quote:
-        "I knew Ross Bank was the right choice from our very first meeting. Their team truly listened to my vision and offered solutions that aligned with my startup’s goals. The digital banking tools they provide are incredibly intuitive, making it easy for me to manage my funding and expenses. With Ross Bank, I feel supported and empowered to take my business to the next level. Their commitment to my success is unmatched!",
+        "I knew Prime Bank was the right choice from our very first meeting. Their team truly listened to my vision and offered solutions that aligned with my startup’s goals. The digital banking tools they provide are incredibly intuitive, making it easy for me to manage my funding and expenses. With Prime Bank, I feel supported and empowered to take my business to the next level. Their commitment to my success is unmatched!",
       name: "Ethan Pate",
       position: "Manager, Together Holdings",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0_qo5E8LYiICADhdFu6-BWsvwnE-b0CmJhA&s",
@@ -79,10 +79,10 @@ function LandingPage() {
         <div className="flex flex-col lg:flex-row justify-between items-center w-full flex-wrap">
           <div className="flex flex-col items-start space-y-10 max-w-full lg:max-w-[50%]">
             <h1 className="text-4xl sm:text-6xl font-bold leading-tight text-center lg:text-left">
-              Welcome to <br /> ROSS BANK Empowering Your Financial Journey
+              Welcome to <br /> PRIME BANK Empowering Your Financial Journey
             </h1>
             <p className="text-lg sm:text-2xl leading-relaxed text-center lg:text-left">
-              At Ross Bank, our mission is to provide comprehensive banking
+              At Prime Bank, our mission is to provide comprehensive banking
               solutions that empower individuals and businesses to achieve their
               financial goals. We are committed to delivering personalized and
               innovative services that prioritize our customers’ needs.
@@ -175,15 +175,15 @@ function LandingPage() {
   <div className="flex flex-col lg:flex-row justify-between items-center">
     <img
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ABSn9j91pbCvK52-EAK7VhmAImZORjqRTw&s"
-      alt="About Ross Bank"
+      alt="About Prime Bank"
       className="w-full lg:w-[700px] h-auto lg:h-[650px] rounded-md object-cover shadow-lg"
     />
     <div className="mt-8 lg:mt-0 lg:ml-12 lg:w-1/2">
       <h3 className="text-3xl font-semibold mb-4 text-center lg:text-left">
-        Who is Ross Bank?
+        Who is Prime Bank?
       </h3>
       <p className="text-lg text-gray-700 mb-4 text-center lg:text-left">
-        Welcome to Ross Bank, where our mission is to provide
+        Welcome to Prime Bank, where our mission is to provide
         comprehensive banking solutions that empower individuals and
         businesses to achieve their financial goals. We are committed to
         delivering personalized and innovative services that prioritize
@@ -191,14 +191,14 @@ function LandingPage() {
       </p>
       <p className="text-lg text-gray-700 mb-4 text-center lg:text-left">
         Founded with a vision to create a banking experience that goes
-        beyond traditional boundaries, Ross Bank has grown into a trusted
+        beyond traditional boundaries, Prime Bank has grown into a trusted
         financial partner for thousands of clients. Our journey began with
         a simple yet profound belief that everyone deserves access to
         financial opportunities that can transform their lives and
         businesses.
       </p>
       <p className="text-lg text-gray-700 text-center lg:text-left">
-        At Ross Bank, we are not just about banking, we are about
+        At Prime Bank, we are not just about banking, we are about
         empowering you to achieve your dreams. Join us and experience the
         difference of a bank that truly cares about your financial
         well-being. Together, we can build a future of financial freedom
@@ -208,7 +208,7 @@ function LandingPage() {
         Why Us?
       </h3>
       <p className="text-lg text-gray-700 mb-4 text-center lg:text-left">
-        At Ross Bank, our “why” is rooted in a deep-seated commitment to
+        At Prime Bank, our “why” is rooted in a deep-seated commitment to
         making a positive impact on our customers lives and the
         communities we serve. We believe that financial empowerment is the
         key to unlocking potential and achieving dreams.
@@ -255,7 +255,7 @@ function LandingPage() {
         <div className="flex flex-col lg:flex-row justify-between items-center w-full flex-wrap">
           <div className="flex flex-col items-start space-y-6 max-w-full lg:max-w-[50%]">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-center lg:text-left">
-              Start Your Financial Journey With ROSS Bank Today!
+              Start Your Financial Journey With PRIME Bank Today!
             </h2>
             <Link 
             to="/signup"
