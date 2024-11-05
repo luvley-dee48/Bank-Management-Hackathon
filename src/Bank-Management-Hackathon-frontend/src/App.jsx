@@ -17,6 +17,7 @@ import CustomerAccountDashboard from "./Pages/CustomerAccountDashboard";
 import CustomerLoanDashboard from "./Pages/CustomerLoanDashboard";
 import ProfileSettings from "./Pages/ProfileSettings";
 import TransferFundsPage from "./Pages/TransferFundsPage";
+import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
 function App() {
   return (
     <ChakraProvider>
@@ -49,6 +50,8 @@ function App() {
             element={<CustomerLoanDashboard />}
           />
           <Route path="/ProfileSettings" element={<ProfileSettings />} />
+          <Route path="/manager-dashboard" element={<ManagerDashboard />} />
+
         </Routes>
       </main>
     </ChakraProvider>
