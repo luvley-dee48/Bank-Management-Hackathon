@@ -1,0 +1,10 @@
+/home/justboogie/Documents/PRIME MARK BOOGIE/BoogieInc/Projects/prime-bank-ai/target/release/deps/libversion_check-6cd59637aac35fc6.rmeta: /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/lib.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/version.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/channel.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/date.rs
+
+/home/justboogie/Documents/PRIME MARK BOOGIE/BoogieInc/Projects/prime-bank-ai/target/release/deps/libversion_check-6cd59637aac35fc6.rlib: /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/lib.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/version.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/channel.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/date.rs
+
+/home/justboogie/Documents/PRIME MARK BOOGIE/BoogieInc/Projects/prime-bank-ai/target/release/deps/version_check-6cd59637aac35fc6.d: /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/lib.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/version.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/channel.rs /home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/date.rs
+
+/home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/lib.rs:
+/home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/version.rs:
+/home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/channel.rs:
+/home/justboogie/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.5/src/date.rs:
