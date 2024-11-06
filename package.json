@@ -14,5 +14,8 @@
   "type": "module",
   "workspaces": [
     "src/prime-bank-ai-frontend"
-  ]
+  ],
+  "devDependencies": {
+    "vite-plugin-environment": "^1.1.3"
+  }
 }

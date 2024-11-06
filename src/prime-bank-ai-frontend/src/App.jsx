@@ -1,30 +1,60 @@
-import { useState } from 'react';
-import { prime_bank_ai_backend } from 'declarations/prime-bank-ai-backend';
-
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+// import { Bank_Management_Hackathon_backend } from "declarations/Bank-Management-Hackathon-backend";
+import LandingPage from "./Pages/LandingPage";
+import SignUpPage from "./Pages/SignUpPage";
+import LoginForm from "./Components/LoginForm";
+import TellersPage from "./Pages/TellersPage";
+import TellerDashboard from "./Components/TellerDashboard";
+import DepositPage from "./Pages/DepositPage";
+import WithdrawPage from "./Pages/WithdrawPage";
+import LoanPage from "./Pages/LoanPage";
+import CustomerDashboard from "./Pages/CustomerDashboard";
+import CustomerTransactionDashboard from "./Pages/CustomerTransactionDashboard";
+import BillPaymentComponent from "./Components/BillPaymentComponent";
+import CustomerAccountDashboard from "./Pages/CustomerAccountDashboard";
+import CustomerLoanDashboard from "./Pages/CustomerLoanDashboard";
+import ProfileSettings from "./Pages/ProfileSettings";
+import TransferFundsPage from "./Pages/TransferFundsPage";
+import ManagerDashboard from "./Pages/Manager/ManagerDashboard";
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    prime_bank_ai_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <ChakraProvider>
+      <main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/tellers" element={<TellersPage />} />
+          <Route path="/teller-dashboard" element={<TellerDashboard />} />
+          <Route path="/transaction/Deposit" element={<DepositPage />} />
+          <Route path="/transaction/Withdraw" element={<WithdrawPage />} />
+          <Route path="/transaction/Loan" element={<LoanPage />} />
+          <Route path="/transaction/Transfer" element={<TransferFundsPage />} />
+          <Route path="/CustomerDashboard" element={<CustomerDashboard />} />
+          <Route
+            path="/CustomerTransactionDashboard"
+            element={<CustomerTransactionDashboard />}
+          />
+          <Route
+            path="/BillPaymentComponent"
+            element={<BillPaymentComponent />}
+          />
+          <Route
+            path="/CustomerAccountDashboard"
+            element={<CustomerAccountDashboard />}
+          />
+          <Route
+            path="/CustomerLoanDashboard"
+            element={<CustomerLoanDashboard />}
+          />
+          <Route path="/ProfileSettings" element={<ProfileSettings />} />
+          <Route path="/manager-dashboard" element={<ManagerDashboard />} />
+
+        </Routes>
+      </main>
+    </ChakraProvider>
   );
 }
 
