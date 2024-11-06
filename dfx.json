@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "prime-bank-ai-backend": {
+      "candid": "src/prime-bank-ai-backend/prime-bank-ai-backend.did",
+      "package": "prime-bank-ai-backend",
+      "type": "rust"
+    },
+    "prime-bank-ai-frontend": {
+      "dependencies": [
+        "prime-bank-ai-backend"
+      ],
+      "source": [
+        "src/prime-bank-ai-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "prime-bank-ai-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
