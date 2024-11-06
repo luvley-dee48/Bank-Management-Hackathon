@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 const customersData = [
   { name: "Richard Brown", email: "richard@gmail.com", phone: "0709876543", address: "123 Main St" },
@@ -13,39 +13,22 @@ const customersData = [
   { name: "Noah Thompson", email: "noah@gmail.com", phone: "0790897654", address: "468 Redwood St" },
 ];
 
-
 const CustomersPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [customers, setCustomers] = useState([]);
-  const [filteredCustomers, setFilteredCustomers] = useState([]);
+  const [customers, setCustomers] = useState(customersData);
+  const [filteredCustomers, setFilteredCustomers] = useState(customersData);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    
-    fetch('http://127.0.0.1:5000/customers')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch customers!');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setCustomers(data.customers);
-        if (searchTerm) {
-          const filtered = data.customers.filter(customer =>
-            customer.name.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-          setFilteredCustomers(filtered);
-        } else {
-          setFilteredCustomers(data.customers);
-        }
-        setError('');
-      })
-      .catch(error => {
-        setError(error.message);
-        setCustomers([]);
-        setFilteredCustomers([]);
-      });
+    // Filter the customers based on search term
+    if (searchTerm) {
+      const filtered = customersData.filter(customer =>
+        customer.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCustomers(filtered);
+    } else {
+      setFilteredCustomers(customersData);
+    }
   }, [searchTerm]);
 
   const handleSearch = () => {
@@ -95,7 +78,7 @@ const CustomersPage = () => {
               <div key={index} className="bg-gray-50 p-4 rounded-lg shadow-md border border-gray-200">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{customer.name}</h3>
                 <p className="text-gray-600 mb-1">Email: {customer.email}</p>
-                <p className="text-gray-600 mb-1">Phone Number: {customer.phone_number}</p>
+                <p className="text-gray-600 mb-1">Phone Number: {customer.phone}</p>
                 <p className="text-gray-600">Address: {customer.address}</p>
               </div>
             ))}

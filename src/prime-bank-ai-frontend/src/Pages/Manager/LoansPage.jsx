@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const loansData = [
   { loan_type: "Personal", loan_amount: 50000, interest_rate: 7.5 , loan_term: 12, customer_name: "Richard Brown" },
@@ -12,42 +12,20 @@ const loansData = [
   { loan_type: "Personal", loan_amount: 25000, interest_rate: 7.0, loan_term: 18, customer_name: "Ava Davidson" },
 ];
 
-
-
 const LoansPage = () => {
-  const [loans, setLoans] = useState([]);
-  const [error, setError] = useState('');
+  const [loans, setLoans] = useState(loansData); // Use loansData directly
   const [lastName, setLastName] = useState(''); 
   const [searchTerm, setSearchTerm] = useState(''); 
 
-  
-  useEffect(() => {
-    const fetchLoans = async () => {
-      try {
-        let url = `http://127.0.0.1:5000/loans`; 
-        if (searchTerm) {
-          url += `/${searchTerm}`; 
-        }
-
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        const data = await response.json();
-        setLoans(data.loans || []);
-        setError(''); 
-      } catch (error) {
-        console.error('There was an error fetching loans!', error);
-        setError('Failed to fetch loans');
-      }
-    };
-
-    fetchLoans(); 
-  }, [searchTerm]);
-
   const handleSearch = () => {
-    setSearchTerm(lastName); 
+    if (lastName === '') {
+      setLoans(loansData); // Reset to original data if search term is cleared
+    } else {
+      const filteredLoans = loansData.filter(loan =>
+        loan.customer_name.toLowerCase().includes(lastName.toLowerCase())
+      );
+      setLoans(filteredLoans);
+    }
   };
 
   return (
@@ -68,33 +46,26 @@ const LoansPage = () => {
           Search
         </button>
       </div>
-      {error && <p className="text-red-600 mb-4">{error}</p>}
       {loans.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-sm divide-y divide-gray-200">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan ID</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan Type</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan Status</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interest Rate</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Loan Term</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone Number</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer Name</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {loans.map((loan) => (
-                <tr key={loan.loan_id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{loan.loan_id}</td>
+              {loans.map((loan, index) => (
+                <tr key={index}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.loan_type}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.loan_amount}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.loan_status}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.interest_rate}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.loan_term}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.last_name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.phone_number}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{loan.customer_name}</td>
                 </tr>
               ))}
             </tbody>

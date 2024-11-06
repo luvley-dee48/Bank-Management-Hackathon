@@ -1,5 +1,4 @@
-import React, { useState , useEffect} from 'react';
-
+import React, { useState } from 'react';
 
 const accountsData = [
   { accountNumber: "1234813289", balance: "KSh 1,200.00", name: "Richard Brown" },
@@ -17,42 +16,19 @@ const accountsData = [
 const AccountsPage = () => {
   const [account, setAccount] = useState(null);
   const [error, setError] = useState('');
-  const [accountNumber, setAccountNumber] = useState(''); 
-  const [searchTerm, setSearchTerm] = useState(''); 
-
-  
-  useEffect(() => {
-    const fetchAccount = async () => {
-      try {
-        if (!searchTerm) return;
-
-        let url = `http://127.0.0.1:5000/accounts/${searchTerm}`; 
-        const response = await fetch(url);
-        if (!response.ok) {
-          if (response.status === 404) {
-            setError('Account not found');
-          } else if (response.status === 400) {
-            setError('Account number is required');
-          } else {
-            throw new Error('Network response was not ok');
-          }
-          setAccount(null);
-        } else {
-          const data = await response.json();
-          setAccount(data);
-          setError('');
-        }
-      } catch (error) {
-        console.error('There was an error fetching account!', error);
-        setError('Failed to fetch account');
-      }
-    };
-
-    fetchAccount(); 
-  }, [searchTerm]);
+  const [accountNumber, setAccountNumber] = useState('');
 
   const handleSearch = () => {
-    setSearchTerm(accountNumber); 
+    // Find account by accountNumber
+    const foundAccount = accountsData.find((acc) => acc.accountNumber === accountNumber);
+
+    if (foundAccount) {
+      setAccount(foundAccount);
+      setError('');
+    } else {
+      setAccount(null);
+      setError('Account not found');
+    }
   };
 
   return (
@@ -73,16 +49,17 @@ const AccountsPage = () => {
           Search
         </button>
       </div>
+
       {error && <p className="text-red-600 mb-4">{error}</p>}
       {account ? (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <div className="flex justify-between text-gray-600 mb-4">
             <span className="font-semibold">Account Number:</span>
-            <span>{account.account_number}</span>
+            <span>{account.accountNumber}</span>
           </div>
           <div className="flex justify-between text-gray-600 mb-4">
             <span className="font-semibold">Customer Name:</span>
-            <span>{account.customer_name}</span>
+            <span>{account.name}</span>
           </div>
           <div className="flex justify-between text-gray-600 mb-4">
             <span className="font-semibold">Balance:</span>
