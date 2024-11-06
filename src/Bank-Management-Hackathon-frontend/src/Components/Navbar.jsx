@@ -59,55 +59,28 @@ const Navbar = () => {
 
         <Spacer />
 
-        
+        {/* Mobile Menu */}
         <Collapse in={isMenuOpen} animateOpacity>
           <Flex
             direction="column"
             align="center"
             display={{ base: "flex", md: "none" }}
             mt={4}
+            gap={4} // Adjust gap for spacing between mobile links
           >
-            <Link
-              href="#home"
-              mb={2}
-              fontSize="lg"
-              fontWeight="medium"
-              _hover={{ color: "blue.600" }}
-              onClick={onMenuClose} 
-            >
+            <Link href="#home" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }} onClick={onMenuClose}>
               Home
             </Link>
-            <Link
-              href="#accounts"
-              mb={2}
-              fontSize="lg"
-              fontWeight="medium"
-              _hover={{ color: "blue.600" }}
-              onClick={onMenuClose}
-            >
+            <Link href="#accounts" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }} onClick={onMenuClose}>
               Accounts
             </Link>
-            <Link
-              href="#about-us"
-              mb={2}
-              fontSize="lg"
-              fontWeight="medium"
-              _hover={{ color: "blue.600" }}
-              onClick={onMenuClose}
-            >
+            <Link href="#about-us" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }} onClick={onMenuClose}>
               About us
             </Link>
-            <Link
-              href="#contact"
-              mb={2}
-              fontSize="lg"
-              fontWeight="medium"
-              _hover={{ color: "blue.600" }}
-              onClick={onMenuClose}
-            >
+            <Link href="#contact" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }} onClick={onMenuClose}>
               Contact us
             </Link>
-            <Button variant="outline" colorScheme="teal" mb={2} rounded="full">
+            <Button variant="outline" colorScheme="teal" rounded="full" onClick={onMenuClose}>
               Sign up
             </Button>
             <Button colorScheme="teal" rounded="full" onClick={onLoginOpen}>
@@ -116,57 +89,27 @@ const Navbar = () => {
           </Flex>
         </Collapse>
 
-        
-        <Flex display={{ base: "none", md: "flex" }} flex="1" justify="center">
-          <Link
-            href="#home"
-            mx={2}
-            fontSize="lg"
-            fontWeight="medium"
-            _hover={{ color: "blue.600" }}
-          >
+        {/* Desktop Menu */}
+        <Flex display={{ base: "none", md: "flex" }} flex="1" justify="center" gap={8}>
+          <Link href="#home" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }}>
             Home
           </Link>
-          <Link
-            href="#accounts"
-            mx={2}
-            fontSize="lg"
-            fontWeight="medium"
-            _hover={{ color: "blue.600" }}
-          >
+          <Link href="#accounts" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }}>
             Accounts
           </Link>
-          <Link
-            href="#about-us"
-            mx={2}
-            fontSize="lg"
-            fontWeight="medium"
-            _hover={{ color: "blue.600" }}
-          >
+          <Link href="#about-us" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }}>
             About us
           </Link>
-          <Link
-            href="#contact"
-            mx={2}
-            fontSize="lg"
-            fontWeight="medium"
-            _hover={{ color: "blue.600" }}
-          >
+          <Link href="#contact" fontSize="lg" fontWeight="medium" _hover={{ color: "blue.600" }}>
             Contact us
           </Link>
         </Flex>
 
         <Spacer />
 
+        {/* Desktop Buttons */}
         <Flex display={{ base: "none", md: "flex" }}>
-          <Button
-            as={RouterLink}
-            to="/signup"
-            variant="outline"
-            colorScheme="teal"
-            mr={2}
-            rounded="full"
-          >
+          <Button as={RouterLink} to="/signup" variant="outline" colorScheme="teal" mr={2} rounded="full">
             Sign up
           </Button>
           <Button colorScheme="teal" rounded="full" onClick={onLoginOpen}>
@@ -175,7 +118,7 @@ const Navbar = () => {
         </Flex>
       </Flex>
 
-      
+      {/* Login Form Collapse */}
       <Collapse in={isLoginOpen} animateOpacity>
         <Box mt={4}>
           <LoginForm isOpen={isLoginOpen} onClose={onLoginClose} />
