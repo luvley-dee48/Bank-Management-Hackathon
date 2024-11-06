@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/prime-bank-ai-backend"
+]
+resolver = "2"
